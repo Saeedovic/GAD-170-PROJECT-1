@@ -19,9 +19,15 @@ public static class StatsGenerator
         stats.xp = Random.Range(-6, 60);
         stats.style = Random.Range(-1, 100);
         stats.rhythm = 5;
+        stats.level = 1;
     }
 
     public static void AssignUnusedPoints(Stats stats, int points)
     {
+        int rhythm = Random.Range(0, 2);
+            stats.rhythm += rhythm;
+        points -= rhythm;
+
+        stats.luck += Random.Range(1, 2);
     }
 }

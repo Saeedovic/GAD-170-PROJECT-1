@@ -22,14 +22,28 @@ public class XPHandler : MonoBehaviour
 
     private void OnDisable()
     {
-        
+
     }
 
     public void GainXP(BattleResultEventData data)
     {
+        int initialxp = 100;
+
+
         if (data.outcome > 0)
         {
-            Debug.Log("YAAAAYY YOU GAINED XP");
+            data.player.xp += 25;
+
+            int xprequired = data.player.level * 500 + initialxp;
+
+            if (data.player.xp >= xprequired)
+            {
+                data.player.xp = 0;
+                data.player.level += 1;
+                GameEvents.PlayerLevelUp(data.player.level);
+            }
+            Debug.Log("xp" + data.player.xp + "   level   " + data.player.level);
         }
     }
+
 }

@@ -30,5 +30,5 @@ public static class BattleHandler
         var results = new BattleResultEventData(data.player, data.npc, outcome);
 
         GameEvents.FinishedBattle(results);
-    }
+        GameEvents.PlayerLevelUp(1);    }
 }
