@@ -24,7 +24,6 @@ public class XPHandler : MonoBehaviour
     {
 
     }
-
     public void GainXP(BattleResultEventData data)
     {
         int initialxp = 100;
@@ -41,6 +40,7 @@ public class XPHandler : MonoBehaviour
                 data.player.xp = 0;
                 data.player.level += 1;
                 GameEvents.PlayerLevelUp(data.player.level);
+
             }
             Debug.Log("xp" + data.player.xp + "   level   " + data.player.level);
         }
